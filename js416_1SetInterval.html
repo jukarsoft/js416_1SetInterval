@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* {
+			margin:auto;
+		}
+		#caja {
+			width: 200px;
+			height: 200px;
+			border: 1px solid grey;
+			margin:auto;
+		}
+
+
+	</style>
+	<script type="text/javascript">
+		//definir listener
+		window.onload = function () {
+			document.getElementById('iniciar').addEventListener('click', inicioContador);
+			document.getElementById('parar').addEventListener('click', pararContador);
+		}
+			//contador de segundos
+			var contador=0;
+			//parar el bucle
+			var temp;
+		//funcion para iniciar contador
+		function inicioContador() {
+			contador=0;
+			//alert('iniciocontador')
+			//desactivar el boton de inicio
+			document.getElementById('iniciar').setAttribute('disabled','true');
+
+			//actualizar el contador cada segundo
+			temp=setInterval(contar,1000);
+		}
+
+		//definir funcion parar
+		function pararContador() {
+			clearInterval(temp);
+			document.getElementById('iniciar').removeAttribute('disabled');
+		}
+
+		function contar() {
+			//alert ('contar')
+			contador++
+			document.getElementById('pantalla').innerText=contador;
+			
+		}
+
+	</script>
+</head>
+<body>
+	<div id="caja">
+		<input type="button" name="iniciar" id="iniciar" value="iniciar">
+		<input type="button" name="parar" id="parar" value="parar">
+		<br><br><br>
+		<h1 id="pantalla" ></h1>
+	</div>
+	
+</body>
+</html>
